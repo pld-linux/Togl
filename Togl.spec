@@ -3,16 +3,21 @@ Summary(pl):	Togl - Biblioteka widgetСw dla Tk
 Name:		Togl
 Version:	1.6
 Release:	2
-Copyright:	Other
+License:	Open Source (see LICENSE file for details)
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
+#Source0:	http://prdownloads.sf.net/Togl/%{name}-%{version}.tar.gz
+#...but there is only 1.5
 Source0:	%{name}-%{version}beta2.tar.gz
 Source1:	%{name}-Makefile.PLD
 Patch0:		%{name}-tkInit.patch
-URL:		http://www.ssec.wisc.edu/~brianp/Togl.html
+URL:		http://togl.sf.net/
 Requires:	OpenGL
 BuildRequires:	tk >= 8.0
 BuildRequires:	tcl >= 8.0
@@ -23,20 +28,28 @@ Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 
 %description
+Togl is a Tk widget for OpenGL rendering.
 
 %description -l pl
+Togl jest widgetem Tk do renderowania OpenGL.
 
 %package devel
 Summary:	Togl devel
 Summary(pl):	Togl - czЙ╤Ф dla programistСw
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 
 %description devel
+Header files and examples for Togl.
 
 %description devel -l pl
+Pliki nagЁСwkowe i przykЁady do Togl.
 
 %prep
 %setup -q
@@ -58,6 +71,8 @@ install togl.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install togl.o $RPM_BUILD_ROOT%{_libdir}
 install togl.h $RPM_BUILD_ROOT%{_includedir}
 
+gzip -9nf LICENSE README
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE
+%doc LICENSE.gz README.gz
 %attr(755,root,root) %{_libdir}/libtogl.so.1.3
 %attr(644,root,root) %{_libdir}/togl.o
 
