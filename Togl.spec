@@ -5,8 +5,7 @@ Version:	1.6
 Release:	2
 License:	Open Source (see LICENSE file for details)
 Group:		Libraries
-#Source0:	http://prdownloads.sf.net/Togl/%{name}-%{version}.tar.gz
-#...but there is only 1.5
+#Source0:	http://dl.sourceforge.net/togl/%{name}-%{version}.tar.gz
 Source0:	%{name}-%{version}beta2.tar.gz
 Source1:	%{name}-Makefile.PLD
 Patch0:		%{name}-tkInit.patch
@@ -56,8 +55,6 @@ install togl.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install togl.o $RPM_BUILD_ROOT%{_libdir}
 install togl.h $RPM_BUILD_ROOT%{_includedir}
 
-gzip -9nf LICENSE README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE.gz README.gz
+%doc LICENSE README
 %attr(755,root,root) %{_libdir}/libtogl.so.1.3
 %attr(644,root,root) %{_libdir}/togl.o
 
