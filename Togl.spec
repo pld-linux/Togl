@@ -40,12 +40,12 @@ mv %{name}-Makefile.PLD Makefile
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_examplesdir}/%{name}-%{version}/src}
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_examplesdir}/%{name}-%{version}}
 #%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
 
 install -s libtogl.so.1.3 $RPM_BUILD_ROOT%{_libdir}
 cp double gears index overlay texture $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install togl.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/src
+install togl.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 install togl.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -62,5 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*
-%attr(644,root,root) %{_examplesdir}/%{name}-%{version}/src/*.c
+%attr(644,root,root) %{_includedir}/togl.h
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*[^togl.c]
+%attr(644,root,root) %{_examplesdir}/%{name}-%{version}/*.c
