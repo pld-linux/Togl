@@ -10,11 +10,13 @@ Source0:	%{name}-%{version}beta2.tar.gz
 Source1:	%{name}-Makefile.PLD
 Patch0:		%{name}-tkInit.patch
 URL:		http://www.ssec.wisc.edu/~brianp/Togl.html
+Requires:	OpenGL
 BuildRequires:	tk >= 8.0
 BuildRequires:	tcl >= 8.0
 BuildRequires:	XFree86-OpenGL-devel >= 4.0.1
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define	_prefix	/usr/X11R6
 
 %description
