@@ -7,7 +7,7 @@ Copyright:	Other
 Group:		Libraries
 Group(pl):	Biblioteki
 Source0:	%{name}-%{version}beta2.tar.gz
-Source1:	Makefile.PLD
+Source1:	%{name}-Makefile.PLD
 Patch0:		%{name}-tkInit.patch
 URL:		http://www.ssec.wisc.edu/~brianp/Togl.html
 BuildRequires:	tk >= 8.0
@@ -35,7 +35,7 @@ Group(pl):	Programowanie/Biblioteki
 
 %build
 install %{SOURCE1} .
-mv Makefile.PLD Makefile
+mv %{name}-Makefile.PLD Makefile
 %{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
@@ -63,4 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*
-%attr(644,root,root) %{_examplesdir)/%{name}-%{version}/src/*.c
+%attr(644,root,root) %{_examplesdir}/%{name}-%{version}/src/*.c
