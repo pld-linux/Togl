@@ -2,7 +2,7 @@ Summary:	Togl - Tk OpenGL Widget
 Summary(pl):	Togl - Biblioteka widgetów dla Tk
 Name:		Togl
 Version:	1.6
-Release:	1
+Release:	2
 Copyright:	Other
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -47,7 +47,7 @@ install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_examplesdir}/%{name}-%{v
 install -s libtogl.so.1.3 $RPM_BUILD_ROOT%{_libdir}
 cp double gears index overlay texture $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install togl.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
+install togl.o $RPM_BUILD_ROOT%{_libdir}
 install togl.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
@@ -60,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE
 %attr(755,root,root) %{_libdir}/libtogl.so.1.3
+%attr(644,root,root) %{_libdir}/togl.o
 
 %files devel
 %defattr(644,root,root,755)
