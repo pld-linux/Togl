@@ -6,6 +6,7 @@ Release:	3
 License:	Open Source (see LICENSE file for details)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/togl/%{name}-%{version}.tar.gz
+# Source0-md5:	1019f483ee1564c98310ff3ca9a75463
 URL:		http://togl.sf.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	tk >= 8.3
