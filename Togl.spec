@@ -43,7 +43,7 @@ Pliki nag³ówkowe i przyk³ady do Togl.
 	SHLINK="%{__cc} -shared" \
 	LIBDIRS="\$(TCL_LIB) -L/usr/X11R6/lib" \
 	TCL_VER="8.3"
-	
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir}/Togl-%{version},%{_includedir},%{_examplesdir}/%{name}-%{version}}
