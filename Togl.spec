@@ -5,13 +5,6 @@ Version:	1.6
 Release:	2
 License:	Open Source (see LICENSE file for details)
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 #Source0:	http://prdownloads.sf.net/Togl/%{name}-%{version}.tar.gz
 #...but there is only 1.5
 Source0:	%{name}-%{version}beta2.tar.gz
@@ -37,13 +30,6 @@ Togl jest widgetem Tk do renderowania OpenGL.
 Summary:	Togl devel
 Summary(pl):	Togl - czЙ╤Ф dla programistСw
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 
 %description devel
 Header files and examples for Togl.
