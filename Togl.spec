@@ -18,7 +18,6 @@ BuildRequires:	XFree86-OpenGL-devel >= 4.0.1
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
-%define		_prefix		/usr/X11R6
 
 %description
 Togl is a Tk widget for OpenGL rendering.
