@@ -48,7 +48,7 @@ mv -f %{name}-Makefile.PLD Makefile
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_examplesdir}/%{name}-%{version}}
-#%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
+#%%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
 
 install libtogl.so.1.3 $RPM_BUILD_ROOT%{_libdir}
 install double gears index overlay texture $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
