@@ -11,7 +11,8 @@ Source1:	%{name}-Makefile.PLD
 Patch0:		%{name}-tkInit.patch
 URL:		http://www.ssec.wisc.edu/~brianp/Togl.html
 BuildRequires:	tk >= 8.0
-#Requires:	
+BuildRequires:	tcl >= 8.0
+BuildRequires:	XFree86-OpenGL-devel >= 4.0.1
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_prefix	/usr/X11R6
