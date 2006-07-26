@@ -7,10 +7,10 @@ License:	Open Source (see LICENSE file for details)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/togl/%{name}-%{version}.tar.gz
 # Source0-md5:	1019f483ee1564c98310ff3ca9a75463
-URL:		http://togl.sf.net/
+URL:		http://togl.sourceforge.net/
 BuildRequires:	OpenGL-devel
-BuildRequires:	tk >= 8.3
 BuildRequires:	tcl >= 8.3
+BuildRequires:	tk >= 8.3
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_includedir}/togl.h
+%{_includedir}/togl.h
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.so
 %{_examplesdir}/%{name}-%{version}/*.c
