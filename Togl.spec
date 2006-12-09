@@ -1,16 +1,17 @@
 Summary:	Togl - Tk OpenGL Widget
 Summary(pl):	Togl - Biblioteka widgetów dla Tk
 Name:		Togl
-Version:	1.6
-Release:	3
-License:	Open Source (see LICENSE file for details)
+Version:	1.7
+Release:	1
+License:	MIT
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/togl/%{name}-%{version}.tar.gz
-# Source0-md5:	1019f483ee1564c98310ff3ca9a75463
+# Source0-md5:	0e7da2559513b064dbb0934dc128b46d
 URL:		http://togl.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	tcl >= 8.3
 BuildRequires:	tk >= 8.3
+BuildRequires:	xorg-lib-libXmu-devel
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,26 +38,23 @@ Pliki nag³ówkowe i przyk³ady do Togl.
 %setup -q
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	COPTS="-c %{rpmcflags} -fPIC -DPC_LINUX %{?debug:-DDEBUG} -DUSE_TCL_STUBS -DUSE_TK_STUBS -DUSE_LOCAL_TK_H" \
-	SHLINK="%{__cc} -shared" \
-	LIBDIRS="\$(TCL_LIB) -L/usr/X11R6/lib" \
-	TCL_VER="8.3"
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir}/Togl-%{version},%{_includedir},%{_examplesdir}/%{name}-%{version}}
 
-install togl.so pkgIndex.tcl $RPM_BUILD_ROOT%{_libdir}/Togl-%{version}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 for f in double gears index overlay texture ; do
-	install ${f}.c ${f}.so ${f}.tcl $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+	install ${f}.c ${f}.tcl $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 done
+
 # for texture
 install ben.rgb tree2.rgba $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
-install togl.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,16 +64,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE Togl.html
-%dir %{_libdir}/Togl-%{version}
-%attr(755,root,root) %{_libdir}/Togl-%{version}/togl.so
-%{_libdir}/Togl-%{version}/*.tcl
+%doc LICENSE README.stubs TODO Togl.html
+%dir %{_libdir}/Togl%{version}
+%attr(755,root,root) %{_libdir}/Togl%{version}/libTogl%{version}.so
+%{_libdir}/Togl%{version}/pkgIndex.tcl
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/togl.h
+%{_includedir}/togl*.h
 %dir %{_examplesdir}/%{name}-%{version}
-%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.so
 %{_examplesdir}/%{name}-%{version}/*.c
 %{_examplesdir}/%{name}-%{version}/*.tcl
 %{_examplesdir}/%{name}-%{version}/*.rgb*
