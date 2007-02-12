@@ -1,5 +1,5 @@
 Summary:	Togl - Tk OpenGL Widget
-Summary(pl):	Togl - Biblioteka widgetów dla Tk
+Summary(pl.UTF-8):   Togl - Biblioteka widgetÃ³w dla Tk
 Name:		Togl
 Version:	1.7
 Release:	1
@@ -20,19 +20,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Togl is a Tk widget for OpenGL rendering.
 
-%description -l pl
+%description -l pl.UTF-8
 Togl jest widgetem Tk do renderowania OpenGL.
 
 %package devel
 Summary:	Togl devel
-Summary(pl):	Togl - czê¶æ dla programistów
+Summary(pl.UTF-8):   Togl - czÄ™Å›Ä‡ dla programistÃ³w
 Group:		Development/Libraries
 
 %description devel
 Header files and examples for Togl.
 
-%description devel -l pl
-Pliki nag³ówkowe i przyk³ady do Togl.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i przykÅ‚ady do Togl.
 
 %prep
 %setup -q
